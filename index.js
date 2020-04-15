@@ -14,7 +14,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', function(req,res) {
-	res.send('Hello');
+	res.render('index',{
+		name: 'AAA'
+	});
 });
 
 app.listen(port,function() {
