@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+var userRoute = require('./routes/user.route');
+
 var port = 3000;
 
 var app = express();
@@ -12,6 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.use(express.static('public'));
+
+app.use('/users',userRoute);
 
 app.get('/', function(req,res) {
 	res.render('index',{
